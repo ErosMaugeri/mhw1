@@ -39,7 +39,7 @@ nav {
     border-radius: 100px;
 }
 
-.button:hover { /*colore al passaggio, in modo da evidenziarlo*/
+.button:hover {
     background-color: #a0203a;
 }
 
@@ -47,7 +47,7 @@ section {
     padding: 20px;
 }
 
-.game-container { /*CONTAINER DEGLI ELEMENTI GAME*/
+.game-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -88,6 +88,10 @@ section {
     color: red;
 }
 
+.in-arrivo {
+    color: orange;
+}
+
 footer {
     background-color: rgb(31,31,31);
     color: rgba(255, 255, 255, 0.4);
@@ -119,7 +123,6 @@ article p {
         flex-wrap: wrap;
         display: flex;
         justify-content: center;
-        width: 100%;
     }
 
     .menu-item {
@@ -133,7 +136,7 @@ article p {
     }
 
     article img {
-        width: 320px;
+        width: 400px;
         height: auto;
     }
 }
