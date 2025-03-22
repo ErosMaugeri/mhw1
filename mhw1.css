@@ -1,0 +1,175 @@
+/* STILI GENERALI */
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+/* HEADER */
+header {
+    background-color: white;
+    padding: 5px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* LOGO */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 120px;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 10px;
+}
+
+.menu-item a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.menu-item a:hover {
+    border-bottom: 3px solid black;
+    padding-bottom: 3px;
+}
+
+/* BANNER */
+.banner {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    margin-top: 110px;
+}
+
+/* SEZIONE PRODOTTI */
+h2 {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.nuovo-label{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    z-index: 1;
+}
+
+.preorder-label {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    height: 15px;
+    line-height: 16px;
+    width: auto;
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 500px;
+    font-size: 15px;
+    z-index: 1;
+    text-align: center;
+}
+
+
+.product-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.product-card {
+    color: black;
+    padding: 15px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    text-align: left;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.price {
+    color: black;
+}
+
+
+
+/* FOOTER */
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 14px;
+    width: 100%; /*RIVEDERE FOOTER E BANNER CHE SI FA LO SPAZIO BIANCO.*/
+}
+
+
+
+/* MEDIA QUERY PER MOBILE */
+@media (max-width: 600px) {
+    nav {
+        display: flex;
+        overflow-x: auto; /* Abilita lo scrolling orizzontale */
+        white-space: nowrap; /* Evita che le voci vadano a capo */
+        padding: 10px 0;
+        gap: 5px;
+        justify-content: flex-start; /* Allinea le voci a sinistra */
+        scroll-behavior: smooth;
+        font-size: 12px; /* Riduce la dimensione del testo */
+    }
+
+    .menu-item {
+        flex-shrink: 0; /* Impedisce il ridimensionamento automatico */
+        padding: 5px 8px;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner {
+        height: 500px;
+        width: 500px;
+        margin-top: 155px;
+    }
+    footer {
+        background-color: black;
+        color: white;
+        padding: 20px;
+        font-size: 14px;
+        width:460px;
+    }
+}
+
+
+
