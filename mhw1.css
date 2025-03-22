@@ -6,6 +6,7 @@ body {
     background-color: white;
     color: black;
     text-align: center;
+    overflow-x: hidden;
 }
 
 /* HEADER */
@@ -143,7 +144,6 @@ footer {
         padding: 10px 0;
         gap: 5px;
         justify-content: flex-start; /* Allinea le voci a sinistra */
-        scroll-behavior: smooth;
         font-size: 12px; /* Riduce la dimensione del testo */
     }
 
@@ -170,6 +170,5 @@ footer {
         width:460px;
     }
 }
-
 
 
