@@ -1,0 +1,608 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+    overflow-x: hidden; /*Mi dava un problema con la foto che usciva e allargava la pagina*/
+    width: 100vw;
+}
+
+/* HEADER */
+header {
+    background-color: white;
+    padding: 5px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;  /*Evita che il contenuto venga tagliato */
+  padding: 5px 0;
+}
+
+/*Sezione sinistra: Servizio clienti e Negozi */
+.header-left {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-left a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  margin-right: 15px;
+  white-space: nowrap; /*Evita che il testo vada a capo */
+}
+
+/*Sezione destra: Icone */
+.header-right {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-right a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  margin-left: 15px;
+}
+
+/* LOGO */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 120px;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /*avendo display:flex uso gap che é intrinseca di flexbox e mi impedisce di usare margin per ogni elemento figlio (lo stesso vale per quelli sotto) */
+    margin-bottom: 10px;
+}
+
+.menu-item a {
+    position: relative;
+    color: black;
+    text-decoration: none; /*Rimuove la sottolineatura */
+    font-weight: 500;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.menu-item a:hover {
+    border-bottom: 3px solid black;
+    padding-bottom: 3px;
+}
+
+/* BANNER */
+.banner {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /*ho usato questo (anziché backgroud-size:cover) perché non da problemi con l'immagine (non viene ristretta quando si passa a mobile) */
+    margin-top: 150px;
+}
+
+/* SEZIONE PRODOTTI */
+h2 {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.nuovo-label{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    z-index: 1;
+}
+
+.preorder-label {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    height: 15px;
+    line-height: 16px;
+    width: auto;
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 500px;
+    font-size: 15px;
+    z-index: 1;
+    text-align: center;
+}
+
+
+.product-container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  justify-content: center;
+}
+
+
+/*Sono varie media query per vari formati dello schermo (in altri modi da problemi su mobile rimpicciolendo troppo le immagini)*/
+
+/*Schermi grandi*/
+@media (min-width: 1025px) {
+  .product-card {
+      flex: 1 1 25%;
+      min-width: 250px;
+      max-width: 25%;
+  }
+}
+
+/*laptop*/
+@media (max-width: 1024px) and (min-width: 600px) {
+  .product-container {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+  }
+  .product-card {
+      flex: 0 0 25%;
+      min-width: 250px;
+      max-width: 25%;
+  }
+}
+
+/*mobile*/
+@media (max-width: 600px) {
+  .product-container {
+      flex-direction: column;
+      align-items: center;
+      overflow: visible;
+  }
+  .product-card {
+      width: 100%;
+      max-width: 400px;
+  }
+}
+
+.product-card {
+    color: black;
+    padding: 15px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    text-align: left;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.price {
+    color: black;
+}
+
+@media (max-width: 600px) {
+    nav {
+        display: flex;
+        overflow-x: auto; /*L'alternativa al menu a tre linee, che si puó fare in javascript */
+        flex-wrap: nowrap;
+        padding: 10px 0;
+        gap: 5px;
+        justify-content: flex-start;
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .menu-item {
+        flex-shrink: 0;
+        padding: 5px 8px;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner {
+        height: 500px;
+        width: 500px;
+        margin-top: 210px;
+    }
+    
+}
+
+/* SEZIONE ABBIGLIAMENTO */
+#abbigliamento-uomo {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px 20px;
+}
+
+.image-box {
+    position: relative;
+    width: 45%;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+}
+
+.text-overlay:hover {
+    background-color: #ff1100;
+}
+
+@media (max-width: 600px) {
+    #abbigliamento-uomo {
+        flex-direction: column;
+    }
+
+    .image-box {
+        width: 100%;
+    }
+}
+
+/* SEZIONE ESSENZIALI FERRARI */
+#essenziali-ferrari {
+    display: flex;
+    justify-content: flex-start;
+    padding: 50px 20px;
+}
+
+.essentials-container {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    gap: 80px;
+}
+
+.essentials-image {
+    height: auto;
+    width: 50vw;
+}
+
+.essentials-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.essentials-text {
+    width: 35%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.essentials-text h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.essentials-text p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.essentials-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.essentials-button:hover{
+    background-color: #ff1100;
+}
+
+@media (max-width: 768px) {
+    .essentials-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .essentials-image, .essentials-text {
+        width: 100%;
+    }
+
+    .essentials-text h2 {
+        font-size: 28px;
+    }
+
+    .essentials-button {
+        padding: 10px 20px;
+    }
+}
+
+
+/* SEZIONE ACCESSORI ICONICI */
+#accessori-iconici {
+    padding: 50px 20px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  
+  .iconics-container {
+    justify-content: left;
+  }
+  
+  .iconics-image {
+    display: block;
+    margin: 0 auto;
+    width: 180vh;
+    height: auto;
+  }
+  
+  .iconics-text {
+    text-align: left;
+    margin: 20px 0 0 0%; /*Sposta il testo verso sinistra, sotto l'immagine */
+  }
+  
+  .iconics-text h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0 0 -1%;
+    color: black;
+  }
+  
+  .iconics-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .iconics-button:hover {
+    background-color: #ff1100;
+  }
+
+  @media (max-width: 600px) {
+    #accessori-iconici {
+      padding: 30px 10px;
+    }
+    
+    .iconics-image {
+      width: 100%;
+    }
+    
+    .iconics-text {
+      margin: 15px 0 0 0%;
+    }
+    
+    .iconics-text h2 {
+      font-size: 24px;
+      margin: 15px 0 0 -3%;
+    }
+    
+    .iconics-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+
+  /* SEZIONE FLAGSHIP STORE */
+#flagship-store {
+    background-color: #a40000; /*Rosso Ferrari */
+    padding: 50px 0;
+  }
+  
+  .flagship-container {
+    display: flex;
+    align-items: center;
+    max-width: 1700px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+  
+  .flagship-image {
+    width: 50%;
+    height: auto;
+    display: block;
+  }
+  
+  .flagship-text {
+    color: white;
+    width: 50%;
+    text-align: left;
+  }
+  
+  .flagship-text h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .flagship-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .discover {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+  }
+  
+  .discover:hover {
+    color: #ff1100;
+    border-bottom: 2px solid #ff1100;
+  }
+  
+  /* SEZIONE TROVA STORE */
+  .store-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  
+  .store-discover {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .find-button {
+    padding: 12px 24px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    font-weight: bold;
+  }
+  
+  .find-button:hover {
+    background-color: white;
+    color: #a40000;
+  }
+
+@media (max-width: 768px) {
+    .flagship-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .flagship-image {
+      width: 90%;
+    }
+    
+    .flagship-text {
+      width: 90%;
+    }
+    
+    .find-button {
+      width: 100%;
+    }
+  }
+
+/* FOOTER */
+footer {
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .footer-top {
+    font-weight: bold;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(218, 216, 216);
+  }
+  
+  .footer-middle {
+    margin: 20px 0;
+  }
+  
+  .scroll-top {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px 0;
+  }
+  
+  .footer-column h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-column a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid black;
+  }
+  
+  .site-map {
+    display: block;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+  }
+  
+  .footer-social {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-column {
+      width: 100%;
+    }
+  }
