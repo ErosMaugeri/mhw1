@@ -196,6 +196,10 @@ h2 {
 }
 
 @media (max-width: 600px) {
+    
+    body{
+      width: 140vw;
+    }
     nav {
         display: flex;
         overflow-x: auto; /*L'alternativa al menu a tre linee, che si puó fare in javascript */
